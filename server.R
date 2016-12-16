@@ -19,9 +19,6 @@ library(ggplot2)
 library(gwascat)
 data(ebicat38)
 
-gwas38 <- as.data.frame(ebicat38)
-gwas38_traits <- as.data.frame(table(gwas38$DISEASE.TRAIT))
-
 # Define server logic required to plot variables
 shinyServer(function(input, output) {
 
@@ -95,6 +92,6 @@ shinyServer(function(input, output) {
 
     }
 
-    print(plot_snps(trait = c(input$variable, input$variable2, input$variable3)))
+    print(plot_snps(trait = c(input$variable, input$variable2, input$variable3, input$variable4, input$variable5, input$variable6, input$variable7, input$variable8, input$variable9)))
   })
 })
