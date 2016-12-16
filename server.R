@@ -8,8 +8,7 @@ chr_data <- within(chr_data, SEQNAME <- factor(SEQNAME, levels = f))
 
 library(ggplot2)
 
-library(gwascat)
-data(ebicat38)
+gwas38 <- read.table("gwas38.txt", header = TRUE, sep = "\t")
 
 # Define server logic required to plot variables
 shinyServer(function(input, output) {
@@ -35,7 +34,7 @@ shinyServer(function(input, output) {
         for (i in 1:length(unique(trait))){
 
           trait_pre <- unique(trait)[i]
-          snps_data_pre <- as.data.frame(locs4trait(ebicat38, trait = paste(trait_pre), tag = "DISEASE/TRAIT"))
+          snps_data_pre <- gwas38[which(gwas38$DISEASE.TRAIT == paste(trait_pre)), ]
           snps_data_pre <- data.frame(Chr = snps_data_pre$seqnames,
                                       Start = snps_data_pre$CHR_POS,
                                       SNPid = snps_data_pre$SNPS,

@@ -1,0 +1,8 @@
+name: gwas_shiny_app
+title:
+account: shiring
+server: shinyapps.io
+appId: 145809
+bundleId: 652975
+url: https://shiring.shinyapps.io/gwas_shiny_app/
+when: 1481922333.71419
