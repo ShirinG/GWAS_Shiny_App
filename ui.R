@@ -1,12 +1,7 @@
 library(shiny)
 library(shinythemes)
 
-library(gwascat)
-data(ebicat38)
-
-gwas38 <- as.data.frame(ebicat38)
-gwas38_traits <- as.data.frame(table(gwas38$DISEASE.TRAIT))
-gwas38_traits <- gwas38_traits[order(gwas38_traits$Freq, decreasing = TRUE), ]
+gwas38_traits <- read.table("gwas38_traits.txt", header = TRUE, sep = "\t")
 
 diseases <- c("choose below", as.character(gwas38_traits$Var1))
 
